@@ -1,8 +1,14 @@
 from function import file_read, file_write
 import time
+import os
+
+if not os.path.exists("todos.txt"):
+    with open("todos.txt", "w") as file:
+        pass
 
 now = time.strftime("%d-%m-%Y %H:%M:%S")
 print("It is", now)
+
 while True:
     user_action = input("Type add ,show ,edit ,complete or exit:") or "exit"
     user_action = user_action.strip()
